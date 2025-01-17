@@ -1,0 +1,30 @@
+# Trigger Challenge :2 -Write an Apex trigger to update a custom field on all related Opportunities when an Account’s status changes to ‘Preferred’.
+
+
+trigger UpdateOpportunityOnAccountStatusChange on Account (after update) {
+
+    List<Opportunity> oppsToUpdate = new List<Opportunity>();
+
+    for (Account acc : Trigger.new) {
+
+        if (acc.Status__c == ‘Preferred’ && Trigger.oldMap.get(acc.Id).Status__c != ‘Preferred’) {
+
+            for (Opportunity opp : [SELECT Id, CustomField__c FROM Opportunity WHERE AccountId = :acc.Id]) {
+
+                opp.CustomField__c = ‘New Value’; 
+
+                oppsToUpdate.add(opp);
+
+            }
+
+        }
+
+    }
+
+    if (!oppsToUpdate.isEmpty()) {
+
+        update oppsToUpdate;
+
+    }
+
+}
