@@ -1,3 +1,5 @@
+#Trigger to find the number of accounts on User
+
 trigger AccountCountOnUser on Account (after insert,after update) {
     List<Id> userIds = new List<Id>();
       Map<Id,Integer> userAccounts = new Map<Id,Integer>();
