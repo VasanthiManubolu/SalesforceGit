@@ -1,3 +1,5 @@
+#Trigger Challenge @3 : A custom roll-up summary on the parent account of the amount field on opportunity records.
+
 trigger amountupdate on opportunity(after insert,after update){
  
 	set<id> accIdList=new set<id>();
