@@ -1,3 +1,8 @@
+/**
+ *  Trigger Challenge#5 :Apex to dynamically create a new Task every time a Contact is added to a Campaign
+ * 
+ */
+
 trigger CreateTaskOnContactCampaign on CampaignMember (after insert) {
 
     List<Task> tasksToCreate = new List<Task>();
