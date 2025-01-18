@@ -1,3 +1,6 @@
+# Trigger Challenge :2 -Write an Apex trigger to update a custom field on all related Opportunities when an Account’s status changes to ‘Preferred’.
+
+
 trigger UpdateOpportunityOnAccountStatusChange on Account (after update) {
 
     set<id> idList=new set<id>();
