@@ -1,4 +1,4 @@
-rigger CreateTaskOnContactCampaign on CampaignMember (after insert) {
+trigger CreateTaskOnContactCampaign on CampaignMember (after insert) {
 
     List<Task> tasksToCreate = new List<Task>();
 
