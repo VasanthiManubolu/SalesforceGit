@@ -20,10 +20,10 @@ trigger updateRelatedContacts on Account(after update){
         
 		if(accMap.keyset().contains(con.accountid)){
             
-			contact c=new contact();
-            c.id=con.id;
-            c.phone=accMap.get(con.accountid);
-            conList.add(c);
+		    contact c=new contact();
+	            c.id=con.id;
+	            c.phone=accMap.get(con.accountid);
+	            conList.add(c);
 		
 		}
 	
