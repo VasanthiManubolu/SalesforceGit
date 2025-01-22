@@ -1,15 +1,14 @@
 
 /* trigger to update contact when accounts phone changed. */
 
-trigger updateRelatedContacts on Account(after update){
+trigger updateRelatedContacts on Account(after update){	
 	
-	set<id> accIds=new set<id>();
 	Map<id,String> accMap=new Map<id,String>();
 	
 	for(Account acc: Trigger.new){
         
 		if(acc.phone != Trigger.oldmap.get(acc.id).phone){		
-			accIds.add(acc.id);
+			
 			accMap.put(acc.id,acc.phone);
 		}      
 	
